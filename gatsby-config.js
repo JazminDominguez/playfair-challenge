@@ -36,6 +36,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "SPACEX",
+        // This is the field under which it's accessible
+        fieldName: "spacex",
+        // URL to query from
+        url: "https://api.spacex.land/graphql/",
+      },
+    },
     `gatsby-plugin-offline`,
   ],
 };
