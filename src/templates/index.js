@@ -4,7 +4,6 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
 
 const CardList = ({ data, pageContext }) => {
   const { currentPage, numPages } = pageContext;
@@ -31,36 +30,55 @@ const CardList = ({ data, pageContext }) => {
         </Link>
       )}
 
-      <section className="text-center">
-        <img
-          alt="Cat and human sitting on a couch"
-          className="block w-1/2 mx-auto mb-8"
-          src={catAndHumanIllustration}
-        />
-
-        <h2 className="inline-block p-3 mb-4 text-2xl font-bold bg-yellow-400">
-          Hey there! Welcome to your first Gatsby site.
-        </h2>
-
-        <p className="leading-loose">
-          This is a barebones starter for Gatsby styled using{` `}
-          <a
-            className="font-bold text-gray-900 no-underline"
-            href="https://tailwindcss.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Tailwind CSS
-          </a>
-          , a utility-first CSS framework.
-        </p>
-      </section>
-      <div>
+      <div className=" flex flex-wrap items-center justify-center">
         {data.spacex.launchesPast.map((launch) => (
-          <div key={launch.id}>
-            <p>{launch.mission_name}</p>
-            <a>{launch.links.wikipedia}</a>
-            <p>{launch.launch_date_local}</p>
+          <div
+            key={launch.id}
+            className="flex-shrink-0 m-6 relative overflow-hidden rounded-lg max-w-xs w-56 h-64  shadow-lg"
+            style={{
+              backgroundImage: `url(${
+                launch.links.flickr_images[
+                  Math.floor(Math.random() * launch.links.flickr_images.length)
+                ]
+              })`,
+              backgroundSize: "100% 100%",
+            }}
+          >
+            <div
+              className="w-full h-full"
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
+            />
+            {/*contenedor de textos */}
+            <div className="absolute text-white px-4 pb-6 bottom-0">
+              <span className="block font-semibold text-xl -mb-1">
+                {launch.mission_name}
+              </span>
+
+              <span className="block mb-2">
+                <p>Lanzamiento:</p>
+                {new Date(launch.launch_date_local).toLocaleString("es-MX", {
+                  hour12: true,
+                })}
+              </span>
+
+              {launch.launch_success === true ? (
+                <span className="inline-block bg-accent rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                  Exitosa
+                </span>
+              ) : (
+                <span className="inline-block bg-failed rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                  No Exitosa
+                </span>
+              )}
+
+              {!launch.links.wikipedia ? (
+                <div sytle={{ display: "none" }} />
+              ) : (
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 ml-6">
+                  <a href={launch.links.wikipedia}>Ver más</a>
+                </span>
+              )}
+            </div>
           </div>
         ))}
       </div>
