@@ -18,18 +18,6 @@ const CardList = ({ data, pageContext }) => {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Home"
       />
-
-      {!isFirst && (
-        <Link to={prevPage} rel="prev">
-          ← Previous Page
-        </Link>
-      )}
-      {!isLast && (
-        <Link to={nextPage} rel="next">
-          Next Page →
-        </Link>
-      )}
-
       <div className=" flex flex-wrap items-center justify-center">
         {data.spacex.launchesPast.map((launch) => (
           <div
@@ -81,6 +69,19 @@ const CardList = ({ data, pageContext }) => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex text-center justify-center font-medium  mt-10">
+        {!isFirst && (
+          <Link to={prevPage} rel="prev" className="inline-block pr-8">
+            ← Prev Page
+          </Link>
+        )}
+
+        {!isLast && (
+          <Link to={nextPage} rel="next" className="pl-8">
+            Next Page →
+          </Link>
+        )}
       </div>
     </Layout>
   );
