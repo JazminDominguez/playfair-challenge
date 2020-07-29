@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 import SEO from "../components/seo";
 import spacexLogo from "../images/spacex-logo.png";
@@ -63,7 +64,7 @@ function AboutPage() {
         </svg>
       </div>
       {/* more info */}
-      <section className="flex flex-col items-center text-center md:flex-row text-black mx-8 mt-20 lg:mt-48 lg:mx-16 mb-8 lg:mb-12">
+      <section className="flex flex-col items-center overflow-auto scrolling-touch text-center md:flex-row text-black mx-8 mt-20 lg:mt-48 lg:mx-16 mb-8 lg:mb-12">
         <div className="md:w-1/3 my-6">
           <img className="" alt="elon musk" src={elon} />
           <p className="text-lg my-4">Founder:</p>
@@ -92,6 +93,7 @@ function AboutPage() {
           <p className="text-2xl  ">{data.headquarters.state}</p>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
