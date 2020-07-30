@@ -9,7 +9,7 @@ git clone https://github.com/JazminDominguez/playfair-challenge
 ```
 
 ```{.bash}
-cd fullstack-challenge
+cd playfair-challenge
 npm install
 ```
 
@@ -21,8 +21,8 @@ npm start
 
 ## Tools and Libraries 📚📖
 
-For this challenge i used [GatsbyJS](https://www.gatsbyjs.org/)
-Gatsby is an open source framework based on React an uses GraphQL to use the site's inner data easily.
+For this challenge i used [GatsbyJS](https://www.gatsbyjs.org/) .
+Gatsby is an open source framework based on React and GraphQL to use the site's inner data easily.
 
 This project was built with [Gatsby's Tailwind starter](https://www.gatsbyjs.org/starters/taylorbryant/gatsby-starter-tailwind/) and [SpaceX API](https://api.spacex.land/graphql) .
 
@@ -38,6 +38,7 @@ Deployment made in Netlify.
 -   Gatsby
 -   Tailwind
 -   GrapQl
+-   Netlify
 
 ## Developer 🧑🏽‍🤝‍🧑🏽
 
